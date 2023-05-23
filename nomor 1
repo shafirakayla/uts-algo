@@ -1,0 +1,52 @@
+package programkasir;
+
+import java.util.Scanner;
+
+/*
+    Nama : SHAFIRA KAYLA AZHARI
+    NPM : 227064516009
+*/
+public class ProgramKasir {
+    // program dibuat untuk menghitung 
+    public static void main(String[] args) {
+        int jumlahBarang, i; // deklarasi jumlahBarang dan i sebagai Integer
+        double totalHarga = 0, hargaBarang, diskon; // Inisialisasi totalHarga dengan nilai awal 0 yang bertipe data double, dan deklarasi hargaBarang, diskon sebagai double
+        
+        Scanner input = new Scanner(System.in); // membuat objek dari class Scanner yang berfungsi untuk membaca inputan melalui keyboard
+        System.out.println("## Program Kasir ##");
+        System.out.println("===================");
+        System.out.println("Masukkan jumlah barang yang ingin dibeli: ");
+        jumlahBarang = input.nextInt(); // menerima inputan dari user dan dimasukkan kedalam variabel jumlahBarang
+        
+        
+        /*
+            menggunakan perulangan for untuk meminta pengguna 
+            memasukkan harga barang sebanyak jumlahBarang kali, setiap
+            harga barang yang dimasukkan akan di akumulasikan ke totalHarga
+        */
+        for(i = 1; i <= jumlahBarang; i++){ // perulangan for yang akan dijalankan sebanyak jumlahBarang kali. Variabel i dideklarasikan dan diinisialisasi dengan nilai 1. Perulangan ini akan terus berjalan selama i kurang dari atau sama dengan jumlahBarang. Setiap kali perulangan dilakukan, nilai i akan bertambah satu (i++).
+            System.out.println("Masukkan harga barang ke-" + i + ": ");
+            hargaBarang = input.nextDouble(); // menerima input pengguna dan disimpan dalam variabel hargaBarang
+            totalHarga += hargaBarang; // mengakumulasi nilai hargaBarang ke totalHarga, nilai hargaBarang yang baru dimasukkan akan ditambahkan ke totalHarga yang telah ada sebelumnya
+        }
+        
+        System.out.println("Total harga belanjaan sebelum diskon: " + totalHarga);
+        if (totalHarga >= 500000) {
+            // Diskon 10% jika total harga belanjaan lebih dari atau sama dengan 500000
+            diskon = totalHarga * 0.1; // memberi nilai pada variabel diskon yang diisi dengan totalHarga * 0.1
+            totalHarga -= diskon; // mengakumulasikan totalHarga dengan menguranginya dengan diskon
+            System.out.println("Anda mendapatkan diskon 10%!");
+        } else if (totalHarga >= 200000) {
+            // Diskon 5% jika total harga belanjaan lebih dari atau sama dengan 200000
+            diskon = totalHarga * 0.05; // memberi nilai pada variabel diskon yang diisi dengan totalHarga * 0.05
+            totalHarga -= diskon;
+            System.out.println("Anda mendapatkan diskon 5%!");
+        } else {
+            System.out.println("Anda tidak mendapatkan diskon.");
+        }
+        
+        System.out.println("Total harga belanjaan setelah diskon: " + totalHarga);
+        System.out.println("Terima kasih.");
+    }
+    
+}
